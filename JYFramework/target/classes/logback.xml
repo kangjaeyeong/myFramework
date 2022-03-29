@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- 30초마다 설정 파일의 변경을 확인하고, 파일이 변경되면 다시 로딩 -->
+<configuration scan="true" scanPeriod="30 seconds">
+	
+	<!-- console에 로그 -->
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<!-- <Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level %40logger{0} - %C - %replace(%msg){'[\r\n]+', 
+				''} %n</Pattern> -->
+			<Pattern>%d{yyyy-MM-dd HH:mm:ss} %-5level [%logger] - %replace(%msg){'[\r\n]+', ''} %n</Pattern>
+		</layout>
+	</appender>
+
+	<logger name="com.kjy">
+		<level value="INFO" />
+		<appender-ref ref="STDOUT" />
+	</logger>
+
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+	</root>
+
+</configuration>
